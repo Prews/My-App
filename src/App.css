@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #222;
+  height: 100px;
+  padding: 20px;
+  color: white;
+  margin-bottom: 1%;
+}
+
+.Product-header, .Cart-header {
+  text-align: left;
+  padding-left: 5%;
+}
+
+.Product-list, .Cart-list {
+  text-align: center;
+  margin-bottom: 5%;
+  font-size: 12px;
+}
+
+.Product-header ul, .Cart-header ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .Product-header ul li {
+    flex: 0 0 33.33%;
+    margin-bottom: 5%;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .Product-header ul li {
+    flex: 0 0 50%;
+    margin-bottom: 5%;
+    margin-left: 0;
+  }
+}
+
+.Cart-header ul li {
+  flex: 0 0 100%;
+  text-align: left;
+}
+
+ .Button-style {
+  background-color: #E7E7E7;
+  font-size: 12px;
+  border-radius: 12px;
+ }
+
+ .Cart-button {
+   padding-right: 2px;
+ }
