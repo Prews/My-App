@@ -29,21 +29,20 @@
 }
 
 @media screen and (min-width: 600px) {
-  .Product-header ul li {
+  .Product-list {
     flex: 0 0 33.33%;
-    margin-bottom: 5%;
+    font-size: 15px;
   }
 }
 
 @media screen and (max-width: 481px) {
-  .Product-header ul li {
+  .Product-list {
     flex: 0 0 50%;
-    margin-bottom: 5%;
     margin-left: 0;
   }
 }
 
-.Cart-header ul li {
+.Cart-list {
   flex: 0 0 100%;
   text-align: left;
 }

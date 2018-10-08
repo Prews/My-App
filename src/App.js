@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import productDetails from './productDetails.js';
+import ProductList from './Components/ProductList';
+import ShopCart from './Components/ShopCart';
+
+const productDetails = require('./data/data.json');
 
 class App extends Component {
   constructor(props) {
@@ -54,37 +57,29 @@ class App extends Component {
           <div className="col-8 Product-header">
             <h4>Product list</h4>
             <ul className="d-flex column">
-              {this.state.publishData ? this.state.publishData.map((data)=>(
-                  <li className="Product-list d-flex flex-column">
-                    <div>
-                      <label>{data.productName}</label>
-                    </div>
-                    <div>
-                      <img src={data.productImage} alt={data.productName} width='70px' height='130px'></img>
-                    </div>
-                    <div>
-                      <label>${data.price}</label>
-                    </div>
-                    <div>
-                      <button className="Button-style" onClick={() => {this.addToCart(data.id)}}>Add to cart</button>
-                    </div>
-                  </li>
+              {this.state.publishData ? this.state.publishData.map((productDetails, index)=>(
+                <div key={index} className="Product-list">
+                  <ProductList
+                    productName={productDetails.productName}
+                    productImage={productDetails.productImage}
+                    price={productDetails.price}
+                  />
+                  <button className="Button-style" onClick={() => {this.addToCart(productDetails.id)}}>addToCart</button>
+                  </div>
               ))
               : ''}
             </ul> 
           </div>
           <div className="col-4 Cart-header">
             <h4>Shopping Cart</h4>
-            <ul className="d-flex row">
-              {this.state.shoppingCart ? this.state.shoppingCart.map((data)=>(
-                  <li className="Cart-list d-flex flex-row">
-                    <div className="col-4">
-                      <label>{data.productName}</label>
-                    </div>
-                    <div className="col-2 offset-sm-1">
-                      <button className="Button-style Cart-button" onClick={() => {this.removeItem(data)}}>Remove</button>
-                    </div>
-                  </li>
+            <ul className="d-flex column">
+              {this.state.shoppingCart ? this.state.shoppingCart.map((productDetails, index)=>(
+                <div key={index} className="Cart-list">
+                 <ShopCart
+                 productName = {productDetails.productName}
+                 />
+                <button className="Button-style Cart-button" onClick={() => {this.removeItem(productDetails)}}>Remove</button>
+                 </div>
               ))
               : ''}
             </ul>
